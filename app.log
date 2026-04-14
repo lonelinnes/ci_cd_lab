@@ -1,0 +1,116 @@
+INFO - OK user=alice product=coffee qty=2 amount=360 reserve=RES-9251
+INFO - OK user=bob product=tea qty=0 amount=0 reserve=RES-2982
+INFO - OK user=alice product=coffee qty=2 amount=360 reserve=RES-8543
+INFO - OK user=bob product=tea qty=0 amount=0 reserve=RES-5602
+INFO - OK user=eva product=tea qty=3 amount=360 reserve=RES-1048
+INFO - Заказ распарсен
+INFO - Стоимость рассчитана
+INFO - Товар зарезервирован
+INFO - Заказ успешно обработан
+ERROR - Ошибка валидации заказа
+INFO - Заказ распарсен
+ERROR - Товар не найден в каталоге
+ERROR - Ошибка валидации заказа
+ERROR - Ошибка валидации заказа
+INFO - Заказ распарсен
+INFO - Стоимость рассчитана
+INFO - Товар зарезервирован
+INFO - Заказ успешно обработан
+INFO - Заказ распарсен
+INFO - Стоимость рассчитана
+INFO - Товар зарезервирован
+INFO - Заказ успешно обработан
+INFO - Заказ распарсен
+INFO - Стоимость рассчитана
+INFO - Товар зарезервирован
+INFO - Заказ успешно обработан
+INFO - Заказ распарсен
+ERROR - Товар не найден в каталоге
+ERROR - Ошибка валидации заказа
+ERROR - Ошибка валидации заказа
+INFO - Заказ распарсен
+INFO - Стоимость рассчитана
+ERROR - Ошибка резервирования
+ERROR - Неожиданная ошибка при обработке заказа
+Traceback (most recent call last):
+  File "C:\Users\Дашенька\Desktop\14-15\src\service.py", line 94, in process_order
+    reserve_id = storage.reserve(user, product, qty)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Дашенька\Desktop\14-15\src\storage.py", line 8, in reserve
+    raise TimeoutError("DB timeout")
+TimeoutError: DB timeout
+INFO - Заказ распарсен
+INFO - Стоимость рассчитана
+ERROR - Ошибка базы данных при резервировании
+ERROR - Неожиданная ошибка
+Traceback (most recent call last):
+  File "C:\Users\Дашенька\Desktop\14-15\src\service.py", line 104, in process_order
+    reserve_id = storage.reserve(user, product, qty)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Дашенька\Desktop\14-15\src\storage.py", line 23, in reserve
+    raise ConnectionError("Не удалось подключиться к базе данных")
+ConnectionError: Не удалось подключиться к базе данных
+INFO - Заказ распарсен
+INFO - Стоимость рассчитана
+INFO - Товар зарезервирован
+INFO - Заказ успешно обработан
+INFO - Заказ распарсен
+ERROR - Товар не найден в каталоге
+ERROR - Ошибка обработки заказа
+ERROR - Ошибка обработки заказа
+INFO - Заказ распарсен
+INFO - Стоимость рассчитана
+INFO - Товар зарезервирован
+INFO - Заказ успешно обработан
+INFO - Заказ распарсен
+INFO - Стоимость рассчитана
+ERROR - Ошибка базы данных при резервировании
+ERROR - Неожиданная ошибка
+Traceback (most recent call last):
+  File "C:\Users\Дашенька\Desktop\14-15\src\service.py", line 104, in process_order
+    reserve_id = storage.reserve(user, product, qty)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Дашенька\Desktop\14-15\src\storage.py", line 23, in reserve
+    raise ConnectionError("Не удалось подключиться к базе данных")
+ConnectionError: Не удалось подключиться к базе данных
+INFO - Заказ распарсен
+INFO - Стоимость рассчитана
+INFO - Товар зарезервирован
+INFO - Заказ успешно обработан
+INFO - Заказ распарсен
+ERROR - Товар не найден в каталоге
+ERROR - Ошибка обработки заказа
+ERROR - Ошибка обработки заказа
+INFO - Заказ распарсен
+INFO - Стоимость рассчитана
+INFO - Товар зарезервирован
+INFO - Заказ успешно обработан
+INFO - Заказ распарсен
+INFO - Стоимость рассчитана
+INFO - Товар зарезервирован
+INFO - Заказ успешно обработан
+INFO - Заказ распарсен
+INFO - Стоимость рассчитана
+INFO - Товар зарезервирован
+INFO - Заказ успешно обработан
+INFO - Заказ распарсен
+ERROR - Товар не найден в каталоге
+ERROR - Ошибка обработки заказа
+ERROR - Ошибка обработки заказа
+INFO - Заказ распарсен
+INFO - Стоимость рассчитана
+INFO - Товар зарезервирован
+INFO - Заказ успешно обработан
+2026-04-14 21:16:52,835 | INFO     | РќР°С‡Р°Р»Рѕ РѕР±СЂР°Р±РѕС‚РєРё | user=alice | raw='alice, coffee, 2'
+2026-04-14 21:16:52,835 | INFO     | Р—Р°РєР°Р· СѓСЃРїРµС€РµРЅ | user=alice | amount=300.0
+2026-04-14 21:16:52,835 | INFO     | РќР°С‡Р°Р»Рѕ РѕР±СЂР°Р±РѕС‚РєРё | user=bob | raw='bob, tea, 1'
+2026-04-14 21:16:52,835 | INFO     | Р—Р°РєР°Р· СѓСЃРїРµС€РµРЅ | user=bob | amount=100.0
+2026-04-14 21:16:52,835 | INFO     | РќР°С‡Р°Р»Рѕ РѕР±СЂР°Р±РѕС‚РєРё | user=kate | raw='kate, pizza, 1'
+2026-04-14 21:16:52,835 | ERROR    | РўРѕРІР°СЂ РЅРµ РЅР°Р№РґРµРЅ | raw='kate, pizza, 1' | msg="РўРѕРІР°СЂ 'pizza' РЅРµ РЅР°Р№РґРµРЅ РІ РєР°С‚Р°Р»РѕРіРµ"
+2026-04-14 21:16:52,835 | INFO     | РќР°С‡Р°Р»Рѕ РѕР±СЂР°Р±РѕС‚РєРё | user=john | raw='john, coffee, two'
+2026-04-14 21:16:52,835 | ERROR    | РћС€РёР±РєР° РІР°Р»РёРґР°С†РёРё | raw='john, coffee, two' | msg=РљРѕР»РёС‡РµСЃС‚РІРѕ РґРѕР»Р¶РЅРѕ Р±С‹С‚СЊ С‡РёСЃР»РѕРј, РїРѕР»СѓС‡РµРЅРѕ 'two'
+2026-04-14 21:16:52,835 | INFO     | РќР°С‡Р°Р»Рѕ РѕР±СЂР°Р±РѕС‚РєРё | user=eva | raw='eva, tea, 0'
+2026-04-14 21:16:52,835 | ERROR    | РћС€РёР±РєР° РІР°Р»РёРґР°С†РёРё | raw='eva, tea, 0' | msg=РљРѕР»РёС‡РµСЃС‚РІРѕ РґРѕР»Р¶РЅРѕ Р±С‹С‚СЊ > 0, РїРѕР»СѓС‡РµРЅРѕ 0
+2026-04-14 21:29:09,415 | INFO     | РќР°С‡Р°Р»Рѕ РѕР±СЂР°Р±РѕС‚РєРё | user=alice | raw='alice, coffee, 2'
+2026-04-14 21:29:09,415 | INFO     | Р—Р°РєР°Р· СѓСЃРїРµС€РµРЅ | user=alice | amount=300.0
+2026-04-14 21:29:09,421 | INFO     | РќР°С‡Р°Р»Рѕ РѕР±СЂР°Р±РѕС‚РєРё | user=kate | raw='kate, pizza, 1'
