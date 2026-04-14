@@ -1,0 +1,56 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+    
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+    
+    - name: Run tests
+      run: pytest -q
+
+  package:
+    needs: test  # Запускается только если тесты прошли
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    
+    - name: Create build directory
+      run: mkdir -p build
+    
+    - name: Copy files to build
+      run: |
+        cp -r src/* build/ 2>/dev/null || cp *.py build/ 2>/dev/null || true
+        cp requirements.txt build/ 2>/dev/null || true
+    
+    - name: Create ZIP archive
+      run: |
+        cd build
+        zip -r app-release.zip .
+    
+    - name: Upload artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: application-build
+        path: build/app-release.zip
+        retention-days: 30
